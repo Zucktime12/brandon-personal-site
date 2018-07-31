@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/service-worker.js">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#536878">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <title>Brandon Zucker - Front End Developer</title>
+    <!-- Add in some basic styles for our HTML -->
+    <style type="text/css">
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Montserrat', sans-serif;
+        color: #5c5c5c;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div className="App">
+        <section className="Hero" style="height: 100vh; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; flex-direction: column; justify-content: center; overflow: hidden;">
+          <h1 className="Hero-image" style="width: 102%; display: block; overflow: hidden; min-width: 600px; text-align: center;">Brandon Zucker</h1>
+          <div className="Hero-container">
+            <h2 style="margin: 0; padding: 15px 0; height: 37px; font-size: 24px;">Front-End Developer</h2>
+          </div>
+        </section>
+      </div> 
+    </div>
+    <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
+    </script>
+  </body>
+</html>
